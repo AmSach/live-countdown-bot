@@ -13,8 +13,8 @@ export const newsitemCommand = new SlashCommandBuilder()
         option
           .setName("text")
           .setDescription("What would you like to tell the users of the bot?")
-          .setRequired(true)
-      )
+          .setRequired(true),
+      ),
   )
   .setDefaultMemberPermissions(0)
   .setDMPermission(false);

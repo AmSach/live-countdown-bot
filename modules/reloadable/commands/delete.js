@@ -47,9 +47,9 @@ const generateMessage = ({ guildId, locale }) => {
             .setEmoji({
               name: type === "timer" ? "⏲️" : "🕑",
             });
-        })
+        }),
       )
-      .setMaxValues(all.length)
+      .setMaxValues(all.length),
   );
 
   return {

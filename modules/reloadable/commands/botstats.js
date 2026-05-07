@@ -91,7 +91,7 @@ const chatInputHandler = async interaction => {
         name: ":red_envelope: SQLite3",
         value: `**v${sqliteVersion}**`,
         inline: true,
-      }
+      },
     )
     .setTimestamp();
 
@@ -117,11 +117,11 @@ const chatInputHandler = async interaction => {
               const { readyAt, guildCount } = JSON.parse(data);
               return bold(
                 `<t:${toSecs(readyAt)}:R> / ${guildCount} / ${id} / <t:${toSecs(
-                  lastInteraction[id]
-                )}:R>`
+                  lastInteraction[id],
+                )}:R>`,
               );
             })
-            .join("\n")
+            .join("\n"),
       )
       .addFields(
         {
@@ -138,7 +138,7 @@ const chatInputHandler = async interaction => {
           name: ":open_file_folder: SQLite Connections",
           value: bold(openConnections.toString()),
           inline: true,
-        }
+        },
       );
     embeds.push(additionalEmbed);
     interaction.editReply({ embeds, ephemeral: true });

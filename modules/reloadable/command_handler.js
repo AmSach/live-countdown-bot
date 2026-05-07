@@ -12,7 +12,7 @@ const allHandlers = (
     fs
       .readdirSync(commandsPath)
       .filter(file => file.endsWith(".js"))
-      .map(filePath => import(path.resolve(commandsPath, filePath)))
+      .map(filePath => import(path.resolve(commandsPath, filePath))),
   )
 ).map(commandFileModule => commandFileModule.handlers);
 

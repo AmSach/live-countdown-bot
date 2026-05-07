@@ -34,10 +34,10 @@ export const timestampCommand = new SlashCommandBuilder()
       .setName(OptionName.datetime)
       .setDescription("The date/time for the timestamp")
       .setRequired(true)
-      .setAutocomplete(true)
+      .setAutocomplete(true),
   )
   .addStringOption(option =>
-    option.setName(OptionName.timezone).setDescription("Current timezone").setAutocomplete(true)
+    option.setName(OptionName.timezone).setDescription("Current timezone").setAutocomplete(true),
   )
   .addStringOption(option =>
     option
@@ -45,8 +45,8 @@ export const timestampCommand = new SlashCommandBuilder()
       .setDescription("Formatting of the generated time tag")
       .addChoices(
         { name: "Show all", value: "all" },
-        ...Object.entries(formats).map(([name, value]) => ({ name, value }))
-      )
+        ...Object.entries(formats).map(([name, value]) => ({ name, value })),
+      ),
   );
 
 /**

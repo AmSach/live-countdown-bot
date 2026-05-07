@@ -47,7 +47,7 @@ const chatInputHandler = async interaction => {
         name: "All is good though!",
         value:
           "Not to worry - The bot should be functional in around a week once the team has completed migration and deployed the new version of the bot.",
-      }
+      },
     );
   embeds.push(helpEmbed);
 
