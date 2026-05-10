@@ -72,7 +72,7 @@ client.on("guildCreate", guild => {
   console.info(`Added to ${guild.name} (${guild.id})`);
   guild?.systemChannel
     ?.send("**Glad to be a part of your server** :heart:\nYou're probably looking for `/help`")
-    .catch(() => {});
+    .catch(err => console.error("Failed to send guild welcome message:", err.message));
 });
 
 client.on("guildDelete", guild => {
