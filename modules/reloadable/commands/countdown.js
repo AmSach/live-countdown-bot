@@ -39,14 +39,14 @@ export const countdownCommand = new SlashCommandBuilder()
       .setDescription("The date/time you want to countdown to")
       .setRequired(true)
       .setAutocomplete(true)
-      .setMaxLength(MAX_LENGTH_STRING_CHOICE),
+      .setMaxLength(MAX_LENGTH_STRING_CHOICE)
   )
   .addStringOption(option =>
-    option.setName(OptionName.timezone).setDescription("Current timezone").setAutocomplete(true),
+    option.setName(OptionName.timezone).setDescription("Current timezone").setAutocomplete(true)
   )
   .addStringOption(option => option.setName(OptionName.reason).setDescription("Description"))
   .addMentionableOption(option =>
-    option.setName(OptionName.mention).setDescription("Mention someone once the timer is done"),
+    option.setName(OptionName.mention).setDescription("Mention someone once the timer is done")
   )
   .setDMPermission(false);
 
@@ -165,7 +165,7 @@ autocompleteOptionHandlers[OptionName.datetime] = async (interaction, value) => 
   });
 
   const suggestion = `${value.substring(0, 50)} (${dt.toLocaleString(
-    DateTime.DATETIME_MED,
+    DateTime.DATETIME_MED
   )} ${timezone})`;
   return [{ name: suggestion, value }];
 };

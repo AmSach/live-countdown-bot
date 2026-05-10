@@ -8,7 +8,7 @@ db.prepare(
     key TEXT PRIMARY KEY NOT NULL,
     value JSON
   )
-  `,
+  `
 ).run();
 
 /*
@@ -23,7 +23,7 @@ db.prepare(
     runId INTEGER UNIQUE NOT NULL,
     data TEXT NOT NULL
   ) STRICT
-  `,
+  `
 ).run();
 
 db.prepare(
@@ -33,7 +33,7 @@ db.prepare(
     runId INTEGER NOT NULL,
     data TEXT
   ) STRICT
-  `,
+  `
 ).run();
 
 // covering index
@@ -42,7 +42,7 @@ db.prepare(
   CREATE INDEX IF NOT EXISTS guildRunIdIndex ON guilds (
     id, runId
   )
-`,
+`
 ).run();
 
 db.prepare(
@@ -51,7 +51,7 @@ db.prepare(
     id TEXT PRIMARY KEY NOT NULL,
     data TEXT
   ) STRICT
-  `,
+  `
 ).run();
 
 db.prepare(
@@ -67,7 +67,7 @@ db.prepare(
       REFERENCES guilds (id)
         ON DELETE CASCADE
   ) STRICT
-  `,
+  `
 ).run();
 
 db.prepare(
@@ -75,7 +75,7 @@ db.prepare(
   CREATE INDEX IF NOT EXISTS nextCountdownIndex ON countdowns (
     updateTime, priority
   )
-`,
+`
 ).run();
 
 /// Key-Value Load & Store
@@ -84,7 +84,7 @@ const setValueStmt = db.prepare(
   `
   INSERT INTO kv (key, value) VALUES (@key, @value)
   ON CONFLICT(key) DO UPDATE SET value = excluded.value
-  `,
+  `
 );
 export const kv = new Proxy(
   {},
@@ -95,7 +95,7 @@ export const kv = new Proxy(
     set(_, key, value) {
       return setValueStmt.run({ key, value }).changes === 1;
     },
-  },
+  }
 );
 
 /// Cluster Table
@@ -108,7 +108,7 @@ const patchClusterDataStmt = db.prepare(
   ON CONFLICT(id) DO UPDATE SET
     runId = excluded.runId,
     data = json_patch(clusters.data, excluded.data);
-  `,
+  `
 );
 export const patchClusterData = (clusterId, runId, dataObj) =>
   patchClusterDataStmt.run({ clusterId, runId, data: JSON.stringify(dataObj) });
@@ -154,7 +154,7 @@ const insertCountdownStmt = db.prepare(
   INSERT INTO countdowns (guild, channel, author, updateTime, priority, data)
   VALUES (@guildId, @channelId, @authorId, @updateTime, @priority, json(@data))
   RETURNING rowid, *
-  `,
+  `
 );
 
 export const insertCountdown = (guildId, channelId, authorId, updateTime, data, priority = 42) =>

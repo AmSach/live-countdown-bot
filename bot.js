@@ -62,7 +62,7 @@ client.once("ready", () => {
   console.info(`${client.user.tag} (${client.shard.ids}) ready for business!`);
   setInterval(
     () => patchClusterData(client.shard.ids[0], client.shard.ids[0], clusterStats()),
-    5 * MINUTES,
+    5 * MINUTES
   );
   setInterval(() => reloadables.performUpdates(client), 100 * MILLISECONDS);
 });

@@ -21,7 +21,7 @@ export const listCommand = new SlashCommandBuilder()
 const nothingFoundEmbed = new EmbedBuilder()
   .setTitle("No countdowns or timers found!")
   .setDescription(
-    "For timers or countdowns to show up in this list, a `reason` must be provided when creating a timer or countdown.",
+    "For timers or countdowns to show up in this list, a `reason` must be provided when creating a timer or countdown."
   );
 
 /**

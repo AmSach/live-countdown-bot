@@ -17,20 +17,20 @@ export const timerCommand = new SlashCommandBuilder()
   .setName("timer")
   .setDescription("Set a timer")
   .addIntegerOption(option =>
-    option.setName(options.seconds).setDescription("Number of seconds to set the timer for"),
+    option.setName(options.seconds).setDescription("Number of seconds to set the timer for")
   )
   .addIntegerOption(option =>
-    option.setName(options.minutes).setDescription("Number of minutes to set the timer for"),
+    option.setName(options.minutes).setDescription("Number of minutes to set the timer for")
   )
   .addIntegerOption(option =>
-    option.setName(options.hours).setDescription("Number of hours to set the timer for"),
+    option.setName(options.hours).setDescription("Number of hours to set the timer for")
   )
   .addIntegerOption(option =>
-    option.setName(options.days).setDescription("Number of days to set the timer for"),
+    option.setName(options.days).setDescription("Number of days to set the timer for")
   )
   .addStringOption(option => option.setName(options.reason).setDescription("Description"))
   .addMentionableOption(option =>
-    option.setName(options.mention).setDescription("Mention someone once the timer is done"),
+    option.setName(options.mention).setDescription("Mention someone once the timer is done")
   )
   .setDMPermission(false);
 

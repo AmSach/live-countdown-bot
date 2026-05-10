@@ -19,22 +19,22 @@ export const pleaseCommand = new SlashCommandBuilder()
   .addSubcommand(subcommand =>
     subcommand
       .setName("postservercount")
-      .setDescription("Post server counts to top.gg and discord.bots.gg"),
+      .setDescription("Post server counts to top.gg and discord.bots.gg")
   )
   .addSubcommand(subcommand => subcommand.setName("register").setDescription("Register commands"))
   .addSubcommand(subcommand =>
-    subcommand.setName("reload").setDescription("Reload code without a restart (Zero downtime)"),
+    subcommand.setName("reload").setDescription("Reload code without a restart (Zero downtime)")
   )
   .addSubcommand(subcommand =>
-    subcommand.setName("respawn").setDescription("Respawn all shards one by one"),
+    subcommand.setName("respawn").setDescription("Respawn all shards one by one")
   )
   .addSubcommand(subcommand =>
     subcommand
       .setName("run")
       .setDescription("Evaluate code on the bot")
       .addStringOption(option =>
-        option.setName("code").setDescription("Code to be evaluated").setRequired(true),
-      ),
+        option.setName("code").setDescription("Code to be evaluated").setRequired(true)
+      )
   );
 
 /**
